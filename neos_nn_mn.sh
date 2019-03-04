@@ -128,11 +128,10 @@ echo "addnode=23.108.108.67" >> /home/neos_$nn/.neos/neos.conf
 echo "addnode=54.36.172.184" >> /home/neos_$nn/.neos/neos.conf
 #
 neosd -datadir=/home/neos_$nn/.neos
-#
-echo "Syncing Masternode $nn ...";
 done
 #
-sleep 10
+echo -e ${YELLOW}"Syncing Masternodes..."${NC}
+sleep 5
 #
 for num in {1..10}; do
    nn=$(printf "%02d" $num)
