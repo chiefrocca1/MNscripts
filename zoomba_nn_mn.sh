@@ -99,7 +99,7 @@ cd /home/zoomba_$nn
 sudo mkdir /home/zoomba_$nn/.zoomba
 sudo touch /home/zoomba_$nn/.zoomba/zoomba.conf 
 echo "rpcuser=zoombauser" >> /home/zoomba_$nn/.zoomba/zoomba.conf
-echo "rpcpassword=asdfasdfkjio" >> /home/zoomba_$nn/.zoomba/zoomba.conf
+echo "rpcpassword=asdfasd1563fkjio" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 echo "rpcallowip=127.0.0.1" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 echo "rpcport=$((port - 1))" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 echo "bind=$(hostname  -I | cut -f1 -d' ')" >> /home/zoomba_$nn/.zoomba/zoomba.conf
