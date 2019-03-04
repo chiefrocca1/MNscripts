@@ -102,8 +102,8 @@ masternode_private_key
 cd /home/neos_$nn
 sudo mkdir /home/neos_$nn/.neos
 sudo touch /home/neos_$nn/.neos/neos.conf 
-echo "rpcuser=neosuser$nn" >> /home/neos_$nn/.neos/neos.conf
-echo "rpcpassword=ajsfiweja;fsjeiw" >> /home/neos_$nn/.neos/neos.conf
+echo "rpcuser=neosuser" >> /home/neos_$nn/.neos/neos.conf
+echo "rpcpassword=ajsfiweja1562fsjeiw" >> /home/neos_$nn/.neos/neos.conf
 echo "rpcallowip=127.0.0.1" >> /home/neos_$nn/.neos/neos.conf
 echo "rpcport=$((port - 1))" >> /home/neos_$nn/.neos/neos.conf
 echo "bind=$(hostname  -I | cut -f1 -d' ')" >> /home/neos_$nn/.neos/neos.conf
