@@ -84,7 +84,7 @@ read privkey
 cd /home/zoomba_$nn
 sudo mkdir /home/zoomba_$nn/.zoomba
 sudo touch /home/zoomba_$nn/.zoomba/zoomba.conf 
-echo "rpcuser=zoombauser" >> /home/zoomba_$nn/.zoomba/zoomba.conf
+echo "rpcuser=zoombauser$nn" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 echo "rpcpassword=asdfasdfkjio" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 echo "rpcallowip=127.0.0.1" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 echo "rpcport=$((port - 1))" >> /home/zoomba_$nn/.zoomba/zoomba.conf
@@ -144,5 +144,3 @@ done
 echo ""
 echo -e ${GREEN}"Congrats! Your Zoomba coin Masternodes are now installed and started. Please wait from 20-30 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
 echo "The END. You can close now the SSH terminal session";
-#
-fi
