@@ -142,10 +142,10 @@ echo "addnode=173.239.219.13" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 echo "addnode=149.28.236.13" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 #
 zoombad -datadir=/home/zoomba_$nn/.zoomba -daemon -reindex
-echo "Syncing Masternode $nn ...";
 done
 #
-sleep 10
+echo -e ${YELLOW}"Syncing Masternodes..."${NC}
+sleep 5
 #
 for num in {1..10}; do
    nn=$(printf "%02d" $num)
