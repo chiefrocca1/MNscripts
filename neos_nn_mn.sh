@@ -94,8 +94,8 @@ sudo adduser --system --home /home/neos_$nn neos_$nn
 cd /home/neos_$nn
 sudo mkdir /home/neos_$nn/.neos
 sudo touch /home/neos_$nn/.neos/neos.conf 
-echo "rpcuser=user"shuf -i 100000-10000000 -n 1 >> /home/neos_$nn/.neos/neos.conf
-echo "rpcpassword=pass"shuf -i 100000-10000000 -n 1 >> /home/neos_$nn/.neos/neos.conf
+echo "rpcuser=neosuser" >> /home/neos_$nn/.neos/neos.conf
+echo "rpcpassword=ajsfiweja;fsjeiw" >> /home/neos_$nn/.neos/neos.conf
 echo "rpcallowip=127.0.0.1" >> /home/neos_$nn/.neos/neos.conf
 echo "rpcport=$((port - 1))" >> /home/neos_$nn/.neos/neos.conf
 echo "bind=$(hostname  -I | cut -f1 -d' ')" >> /home/neos_$nn/.neos/neos.conf
