@@ -19,18 +19,6 @@ echo
 echo -e ${GREEN}"Are you sure you want to install a Neos Masternode? type y/n followed by [ENTER]:"${NC}
 read AGREE
 #
-if [[ $AGREE =~ "y" ]]; then
-#
-for num in {1..10}; do
-   nn=$(printf "%02d" $num)
-# Use $nn for your purposes
-#
-echo -e ${GREEN}"Please Enter Your Masternodes Private Key for node $nn:"${NC}
-read PRIV_KEY_$nn
-#read -p "Enter Your Private Key for Masternode $nn: " PRIV_KEY_$nn
-#
-done
-#
 sudo apt-get -y update 
 sudo apt-get -y upgrade
 sudo apt-get -y install software-properties-common 
@@ -83,15 +71,18 @@ sudo make install -y
 for num in {1..10}; do
    nn=$(printf "%02d" $num)
 # Use $nn for your purposes
-port=$((nn * 2 + 44473))
+port=$((num * 2 + 44473))
 #
 echo "Creating n Neos system users with no-login access:"
 sudo adduser --system --home /home/neos_$nn neos_$nn
 #
+echo -e ${GREEN}"Please Enter Your Masternodes Private Key for node $nn:"${NC}
+read privkey
+#
 cd /home/neos_$nn
 sudo mkdir /home/neos_$nn/.neos
 sudo touch /home/neos_$nn/.neos/neos.conf 
-echo "rpcuser=neosuser" >> /home/neos_$nn/.neos/neos.conf
+echo "rpcuser=neosuser$nn" >> /home/neos_$nn/.neos/neos.conf
 echo "rpcpassword=ajsfiweja;fsjeiw" >> /home/neos_$nn/.neos/neos.conf
 echo "rpcallowip=127.0.0.1" >> /home/neos_$nn/.neos/neos.conf
 echo "rpcport=$((port - 1))" >> /home/neos_$nn/.neos/neos.conf
@@ -103,7 +94,7 @@ echo "listen=0" >> /home/neos_$nn/.neos/neos.conf
 echo "masternode=1" >> /home/neos_$nn/.neos/neos.conf
 echo "logtimestamps=1" >> /home/neos_$nn/.neos/neos.conf
 echo "maxconnections=250" >> /home/neos_$nn/.neos/neos.conf
-echo "masternodeprivkey=$PRIV_KEY_$nn" >> /home/neos_$nn/.neos/neos.conf
+echo "masternodeprivkey=$privkey" >> /home/neos_$nn/.neos/neos.conf
 echo "externalip=$(hostname  -I | cut -f1 -d' ')" >> /home/neos_$nn/.neos/neos.conf
 echo "masternodeaddr=$(hostname  -I | cut -f1 -d' '):44473" >> /home/neos_$nn/.neos/neos.conf
 echo "addnode=149.56.70.224" >> /home/neos_$nn/.neos/neos.conf
@@ -136,7 +127,5 @@ echo -e ${GREEN}"Congrats! Your Zoomba coin Masternodes are now installed and st
 echo "The END. You can close now the SSH terminal session";
 #
 echo -e ${GREEN}"Congrats! Your $nn Masternode is now installed and has started. Please wait from 10-60 minutes in order to give the masternode enough time to sync, then start the node from your Windows wallet."${NC}
-#
-done
 #
 fi
