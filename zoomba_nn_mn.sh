@@ -80,7 +80,7 @@ sudo make install
 for num in {1..10}; do
    nn=$(printf "%02d" $num)
 # Use $nn for your purposes
-port=$((nn * 2 + 5530))
+port=$((num * 2 + 5530))
 #
 echo "Creating n Zoomba system users with no-login access:"
 sudo adduser --system --home /home/zoomba_$nn zoomba_$nn
