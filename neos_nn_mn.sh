@@ -1,4 +1,9 @@
 #!/bin/bash
+# Only run as a root user
+if [ "$(sudo id -u)" != "0" ]; then
+    echo "This script may only be run as root or with user with sudo privileges."
+    exit 1
+fi
 #
 #Setup Variables
 GREEN='\033[0;32m'
