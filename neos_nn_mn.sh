@@ -83,21 +83,8 @@ port=$((num * 2 + 44473))
 echo "Creating Neos system users with no-login access:"
 sudo adduser --system --home /home/neos_$nn neos_$nn
 #
-masternode_private_key(){
-  read -e -p "Please Enter Your Masternodes Private Key for node $nn:" MASTERNODE_PRIVATE_KEY
-  if [ "$MASTERNODE_PRIVATE_KEY" = "" ]; then
-    if [ "$masternodeprivkey" != "" ]; then
-      MASTERNODE_PRIVATE_KEY="$privkey"
-    else
-      echo "You must enter a masternode private key!";
-      masternode_private_key
-    fi
-  fi
-}
-#
-masternode_private_key
-#echo -e ${GREEN}"Please Enter Your Masternodes Private Key for node $nn:"${NC}
-#read privkey
+echo -e ${GREEN}"Please Enter Your Masternodes Private Key for node $nn:"${NC}
+read privkey
 #
 cd /home/neos_$nn
 sudo mkdir /home/neos_$nn/.neos
@@ -128,6 +115,7 @@ echo "addnode=23.108.108.67" >> /home/neos_$nn/.neos/neos.conf
 echo "addnode=54.36.172.184" >> /home/neos_$nn/.neos/neos.conf
 #
 neosd -datadir=/home/neos_$nn/.neos
+echo -e ${YELLOW}"Syncing of Masternode $nn has begun..."${NC}
 done
 #
 echo -e ${YELLOW}"Syncing Masternodes..."${NC}
