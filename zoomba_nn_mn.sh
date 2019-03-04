@@ -78,8 +78,22 @@ port=$((num * 2 + 5530))
 echo "Creating n Zoomba system users with no-login access:"
 sudo adduser --system --home /home/zoomba_$nn zoomba_$nn
 #
-echo -e ${GREEN}"Please Enter Your Masternodes Private Key for node $nn:"${NC}
-read privkey
+masternode_private_key(){
+  read -e -p "Please Enter Your Masternodes Private Key for node $nn:" MASTERNODE_PRIVATE_KEY
+  if [ "$MASTERNODE_PRIVATE_KEY" = "" ]; then
+    if [ "$masternodeprivkey" != "" ]; then
+      MASTERNODE_PRIVATE_KEY="$privkey"
+    else
+      echo "You must enter a masternode private key!";
+      masternode_private_key
+    fi
+  fi
+}
+#
+masternode_private_key
+#echo -e ${GREEN}"Please Enter Your Masternodes Private Key for node $nn:"${NC}
+#read privkey
+#
 #
 cd /home/zoomba_$nn
 sudo mkdir /home/zoomba_$nn/.zoomba
