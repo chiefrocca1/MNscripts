@@ -27,7 +27,7 @@ do
 # Use $nn for your purposes
 #
 echo -e ${GREEN}"Please Enter Your Masternodes Private Key for node $pk:"${NC}
-read PRIV_KEY_$pk
+read "PRIV_KEY_$(pk)"
 #read -p "Enter Your Private Key for Masternode $nn: " PRIV_KEY_$pk
 #
 done
