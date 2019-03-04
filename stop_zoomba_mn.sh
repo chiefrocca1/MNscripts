@@ -1,5 +1,5 @@
 #!/bin/bash
-#Start all Zoomba Masternodes
+#Stop all Zoomba Masternodes
 for num in {1..10}; do
    nn=$(printf "%02d" $num)
 # Use $nn for your purposes
@@ -7,9 +7,8 @@ for num in {1..10}; do
 OUTPUT=$(zoomba-cli -datadir=/home/zoomba_$nn/.zoomba getinfo 2>&1)
 if [[ "$OUTPUT" == *"error: couldn't connect to server"* ]]
  then
-   echo "Running zoombad..."
-   sudo su -c "zoombad -datadir=/home/zoomba_$nn/.zoomba -daemon"
+   echo "Masternode $nn is not running..."
  else
-   echo "Do Nothing"
+   sudo su -c "zoomba-cli -datadir=/home/zoomba_$nn/.zoomba stop"
 fi
 done
