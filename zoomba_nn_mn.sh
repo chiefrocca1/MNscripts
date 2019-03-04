@@ -78,21 +78,8 @@ port=$((num * 2 + 5530))
 echo "Creating n Zoomba system users with no-login access:"
 sudo adduser --system --home /home/zoomba_$nn zoomba_$nn
 #
-masternode_private_key(){
-  read -e -p "Please Enter Your Masternodes Private Key for node $nn:" MASTERNODE_PRIVATE_KEY
-  if [ "$MASTERNODE_PRIVATE_KEY" = "" ]; then
-    if [ "$masternodeprivkey" != "" ]; then
-      MASTERNODE_PRIVATE_KEY="$privkey"
-    else
-      echo "You must enter a masternode private key!";
-      masternode_private_key
-    fi
-  fi
-}
-#
-masternode_private_key
-#echo -e ${GREEN}"Please Enter Your Masternodes Private Key for node $nn:"${NC}
-#read privkey
+echo -e ${GREEN}"Please Enter Your Masternodes Private Key for node $nn:"${NC}
+read privkey
 #
 #
 cd /home/zoomba_$nn
@@ -142,6 +129,7 @@ echo "addnode=173.239.219.13" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 echo "addnode=149.28.236.13" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 #
 zoombad -datadir=/home/zoomba_$nn/.zoomba -daemon -reindex
+echo -e ${YELLOW}"Syncing of Masternode $nn has begun..."${NC}
 done
 #
 echo -e ${YELLOW}"Syncing Masternodes..."${NC}
