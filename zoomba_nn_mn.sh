@@ -98,7 +98,7 @@ masternode_private_key
 cd /home/zoomba_$nn
 sudo mkdir /home/zoomba_$nn/.zoomba
 sudo touch /home/zoomba_$nn/.zoomba/zoomba.conf 
-echo "rpcuser=zoombauser$nn" >> /home/zoomba_$nn/.zoomba/zoomba.conf
+echo "rpcuser=zoombauser" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 echo "rpcpassword=asdfasdfkjio" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 echo "rpcallowip=127.0.0.1" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 echo "rpcport=$((port - 1))" >> /home/zoomba_$nn/.zoomba/zoomba.conf
