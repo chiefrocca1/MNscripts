@@ -1,4 +1,9 @@
 #!/bin/bash
+# Only run as a root user
+if [ "$(sudo id -u)" != "0" ]; then
+    echo "This script may only be run as root or with user with sudo privileges."
+    exit 1
+fi
 #
 #Setup Variables
 GREEN='\033[0;32m'
@@ -6,6 +11,10 @@ YELLOW='\033[0;93m'
 RED='\033[0;31m'
 NC='\033[0m'
 #
+pause(){
+  echo ""
+  read -n1 -rsp $'Press any key to continue or Ctrl+C to exit...\n'
+}
 #Checking OS
 if [[ $(lsb_release -d) != *16.04* ]]; then
   echo -e ${RED}"The operating system is not Ubuntu 16.04. You must be running on ubuntu 16.04."${NC}
@@ -13,13 +22,8 @@ if [[ $(lsb_release -d) != *16.04* ]]; then
 fi
 #
 echo -e ${YELLOW}"Welcome to the Zoomba Automated Install, During this Process Please Hit Enter or Input What is Asked."${NC}
-echo
-echo -e ${YELLOW}"You Will See alot of code flashing across your screen, don't be alarmed it's supposed to do that. This process can take up to an hour and may appear to be stuck, but I can promise you it's not."${NC}
-echo
-echo -e ${GREEN}"Are you sure you want to install a Zoomba Masternode? type y/n followed by [ENTER]:"${NC}
-read AGREE
-#
-if [[ $AGREE =~ "y" ]]; then
+echo ""
+pause
 #
 sudo apt-get -y update 
 sudo apt-get -y upgrade
@@ -74,7 +78,7 @@ port=$((num * 2 + 5530))
 echo "Creating n Zoomba system users with no-login access:"
 sudo adduser --system --home /home/zoomba_$nn zoomba_$nn
 #
-echo -e ${GREEN}"Please Enter Your Masternodes Private Key for node $pk:"${NC}
+echo -e ${GREEN}"Please Enter Your Masternodes Private Key for node $nn:"${NC}
 read privkey
 #
 cd /home/zoomba_$nn
