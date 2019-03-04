@@ -67,7 +67,7 @@ sudo swapon /var/swap.img
 sudo echo ' /var/swap.img none swap sw 0 0 ' >> /etc/fstab
 cd ~ 
 #
-sudo git clone https://github.com/neoscoin/neos.git 
+sudo git clone https://github.com/neoscoin/neos-core
 sudo chmod -R 755 ~/neos 
 cd ~/neos/ 
 sudo ./autogen.sh 
