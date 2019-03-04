@@ -21,17 +21,6 @@ read AGREE
 #
 if [[ $AGREE =~ "y" ]]; then
 #
-for num in {1..10}
-do
-   pk=$(printf "%02d" $num)
-# Use $nn for your purposes
-#
-echo -e ${GREEN}"Please Enter Your Masternodes Private Key for node $pk:"${NC}
-read "PRIV_KEY_$(pk)"
-#read -p "Enter Your Private Key for Masternode $nn: " PRIV_KEY_$pk
-#
-done
-#
 sudo apt-get -y update 
 sudo apt-get -y upgrade
 sudo apt-get -y install software-properties-common 
@@ -85,6 +74,9 @@ port=$((num * 2 + 5530))
 echo "Creating n Zoomba system users with no-login access:"
 sudo adduser --system --home /home/zoomba_$nn zoomba_$nn
 #
+echo -e ${GREEN}"Please Enter Your Masternodes Private Key for node $pk:"${NC}
+read privkey
+#
 cd /home/zoomba_$nn
 sudo mkdir /home/zoomba_$nn/.zoomba
 sudo touch /home/zoomba_$nn/.zoomba/zoomba.conf 
@@ -100,7 +92,7 @@ echo "listen=0" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 echo "masternode=1" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 echo "logtimestamps=1" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 echo "maxconnections=250" >> /home/zoomba_$nn/.zoomba/zoomba.conf
-echo "masternodeprivkey=$PRIV_KEY_$nn" >> /home/zoomba_$nn/.zoomba/zoomba.conf
+echo "masternodeprivkey=$privkey" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 echo "externalip=$(hostname  -I | cut -f1 -d' '):5530" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 echo "addnode=108.61.206.254" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 echo "addnode=139.99.194.25" >> /home/zoomba_$nn/.zoomba/zoomba.conf
