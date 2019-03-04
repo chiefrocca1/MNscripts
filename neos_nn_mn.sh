@@ -85,9 +85,6 @@ for num in {1..10}; do
 # Use $nn for your purposes
 port=$((nn * 2 + 44473))
 #
-echo -e ${GREEN}"Please Enter Your Masternodes Private Key for node $nn:"${NC}
-read PRIV_KEY_$nn
-#
 echo "Creating n Neos system users with no-login access:"
 sudo adduser --system --home /home/neos_$nn neos_$nn
 #
