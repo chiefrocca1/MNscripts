@@ -11,6 +11,10 @@ YELLOW='\033[0;93m'
 RED='\033[0;31m'
 NC='\033[0m'
 #
+pause(){
+  echo ""
+  read -n1 -rsp $'Press any key to continue or Ctrl+C to exit...\n'
+}
 #Checking OS
 if [[ $(lsb_release -d) != *16.04* ]]; then
   echo -e ${RED}"The operating system is not Ubuntu 16.04. You must be running on ubuntu 16.04."${NC}
@@ -18,11 +22,8 @@ if [[ $(lsb_release -d) != *16.04* ]]; then
 fi
 #
 echo -e ${YELLOW}"Welcome to the Neos Automated Install, During this Process Please Hit Enter or Input What is Asked."${NC}
-echo
-echo -e ${YELLOW}"You Will See alot of code flashing across your screen, don't be alarmed it's supposed to do that. This process can take up to an hour and may appear to be stuck, but I can promise you it's not."${NC}
-echo
-echo -e ${GREEN}"Are you sure you want to install a Neos Masternode? type y/n followed by [ENTER]:"${NC}
-read AGREE
+echo ""
+pause
 #
 sudo apt-get -y update 
 sudo apt-get -y upgrade
@@ -132,5 +133,3 @@ echo -e ${GREEN}"Congrats! Your Zoomba coin Masternodes are now installed and st
 echo "The END. You can close now the SSH terminal session";
 #
 echo -e ${GREEN}"Congrats! Your $nn Masternode is now installed and has started. Please wait from 10-60 minutes in order to give the masternode enough time to sync, then start the node from your Windows wallet."${NC}
-#
-fi
