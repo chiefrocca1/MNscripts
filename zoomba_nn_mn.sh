@@ -23,12 +23,12 @@ if [[ $AGREE =~ "y" ]]; then
 #
 for num in {1..10}
 do
-   nn=$(printf "%02d" $num)
+   pk=$(printf "%02d" $num)
 # Use $nn for your purposes
 #
-echo -e ${GREEN}"Please Enter Your Masternodes Private Key for node $nn:"${NC}
-read PRIV_KEY_$nn
-#read -p "Enter Your Private Key for Masternode $nn: " PRIV_KEY_$nn
+echo -e ${GREEN}"Please Enter Your Masternodes Private Key for node $pk:"${NC}
+read PRIV_KEY_$pk
+#read -p "Enter Your Private Key for Masternode $nn: " PRIV_KEY_$pk
 #
 done
 #
