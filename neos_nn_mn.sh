@@ -15,6 +15,7 @@ pause(){
   echo ""
   read -n1 -rsp $'Press any key to continue or Ctrl+C to exit...\n'
 }
+#
 #Checking OS
 if [[ $(lsb_release -d) != *16.04* ]]; then
   echo -e ${RED}"The operating system is not Ubuntu 16.04. You must be running on ubuntu 16.04."${NC}
@@ -79,11 +80,24 @@ for num in {1..10}; do
 # Use $nn for your purposes
 port=$((num * 2 + 44473))
 #
-echo "Creating n Neos system users with no-login access:"
+echo "Creating Neos system users with no-login access:"
 sudo adduser --system --home /home/neos_$nn neos_$nn
 #
-echo -e ${GREEN}"Please Enter Your Masternodes Private Key for node $nn:"${NC}
-read privkey
+masternode_private_key(){
+  read -e -p "Please Enter Your Masternodes Private Key for node $nn:" MASTERNODE_PRIVATE_KEY
+  if [ "$MASTERNODE_PRIVATE_KEY" = "" ]; then
+    if [ "$masternodeprivkey" != "" ]; then
+      MASTERNODE_PRIVATE_KEY="$privkey"
+    else
+      echo "You must enter a masternode private key!";
+      masternode_private_key
+    fi
+  fi
+}
+#
+masternode_private_key
+#echo -e ${GREEN}"Please Enter Your Masternodes Private Key for node $nn:"${NC}
+#read privkey
 #
 cd /home/neos_$nn
 sudo mkdir /home/neos_$nn/.neos
