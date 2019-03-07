@@ -70,6 +70,18 @@ sudo ./configure --disable-tests --disable-gui-tests
 sudo make 
 sudo make install
 #
+#
+PRIV_KEY_01=
+PRIV_KEY_02=
+PRIV_KEY_03=
+PRIV_KEY_04=
+PRIV_KEY_05=
+PRIV_KEY_06=
+PRIV_KEY_07=
+PRIV_KEY_08=
+PRIV_KEY_09=
+PRIV_KEY_10=
+#
 for num in {1..10}; do
    nn=$(printf "%02d" $num)
 # Use $nn for your purposes
@@ -78,8 +90,10 @@ port=$((num * 2 + 5530))
 echo "Creating n Zoomba system users with no-login access:"
 sudo adduser --system --home /home/zoomba_$nn zoomba_$nn
 #
-echo -e ${GREEN}"Please Enter Your Masternodes Private Key for node $nn:"${NC}
-read privkey
+echo "Creating Neos system users with no-login access:"
+sudo adduser --system --home /home/neos_$nn neos_$nn
+#
+eval pk='$'PRIV_KEY_"$nn"
 #
 #
 cd /home/zoomba_$nn
@@ -97,7 +111,7 @@ echo "listen=0" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 echo "masternode=1" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 echo "logtimestamps=1" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 echo "maxconnections=250" >> /home/zoomba_$nn/.zoomba/zoomba.conf
-echo "masternodeprivkey=$privkey" >> /home/zoomba_$nn/.zoomba/zoomba.conf
+echo "masternodeprivkey=$pk" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 echo "externalip=$(hostname  -I | cut -f1 -d' '):5530" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 echo "addnode=108.61.206.254" >> /home/zoomba_$nn/.zoomba/zoomba.conf
 echo "addnode=139.99.194.25" >> /home/zoomba_$nn/.zoomba/zoomba.conf
@@ -145,4 +159,5 @@ done
 #
 echo ""
 echo -e ${GREEN}"Congrats! Your Zoomba coin Masternodes are now installed and started. Please wait from 20-30 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
-echo "The END. You can close now the SSH terminal session";
+echo "The END. You can close now the SSH terminal session"
+echo "$(date)";
