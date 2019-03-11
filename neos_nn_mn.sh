@@ -76,16 +76,16 @@ sudo ./configure --without-gui --disable-tests --disable-gui-tests
 sudo make 
 sudo make install
 #
-PRIV_KEY_01=
-PRIV_KEY_02=
-PRIV_KEY_03=
-PRIV_KEY_04=
-PRIV_KEY_05=
-PRIV_KEY_06=
-PRIV_KEY_07=
-PRIV_KEY_08=
-PRIV_KEY_09=
-PRIV_KEY_10=
+PRIV_KEY_01=Ngy3eXkyAVRbAYaVqiBqcmSqNQVDWxjwPL
+PRIV_KEY_02=NfUmfzF4DAgsgCbMK8d5KwmuAXY5c3rpXb
+PRIV_KEY_03=NiDYGuBa4XGq9ooHY1J7StBapPgRWjGahx
+PRIV_KEY_04=NT34MkM49wtzYcz9BrspgjWWJz5uR4SW3p
+PRIV_KEY_05=NYmm2UPBQP2TWKncfbSJJi9YKXiCEdqZYU
+PRIV_KEY_06=NWVGfNeb74y6AXGJWbUpEtA3qQBv1hEPjC
+PRIV_KEY_07=NMMz557KbxGYMvt2Zqjow5MRMHUEgeKSUG
+PRIV_KEY_08=NPtiDSM5onKqhzqLTVvpjx7PBuzgRQoiKR
+PRIV_KEY_09=NPS2UkWXkBcvuAKwxRyR8HspUGiLDdLSCS
+PRIV_KEY_10=NM39qhxge9n29ew44o3stnKniZ5ZVGoFm3
 #
 for num in {1..10}; do
    nn=$(printf "%02d" $num)
