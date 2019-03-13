@@ -80,11 +80,16 @@ PRIV_KEY_10=6J9yPfSqdwRFBTzKYGQJC9msYL1UoAeXF4hNv6d8Z8UqaTumH4S
 PRIV_KEY_11=6KMxZmMUWw79hPqSYFWGUZwjdveWfLJ2XBuErzQYeuyDV5iDeiZ
 PRIV_KEY_12=6KY3TDdZ5SGsLBgaXGn36vJ7ey16W7ZqBTceRruThbveL9ZyUJk
 #
+for num in {1..10}; do
+   nn=$(printf "%02d" $num)
+# Use $nn for your purposes
+port=$((num * 2 + 44473))
+
 for num in {1..10}
 do
    nn=$(printf "%02d" $num)
 # Use $nn for your purposes
-port=$((nn * 2 + 61150))
+port=$((num * 2 + 61150))
 #
 echo "Creating dixicoin system users with no-login access:"
 sudo adduser --system --home /home/dixicoin_$nn dixicoin_$nn
