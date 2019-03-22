@@ -144,6 +144,6 @@ echo -e ${GREEN}"Masternode $nn is fully synced!"${NC}
 done
 #
 echo ""
-echo -e ${GREEN}"Congrats! Your Zoomba coin Masternodes are now installed and started. Please wait from 20-30 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
+echo -e ${GREEN}"Congrats! Your Neos coin Masternodes are now installed and started. Please wait from 20-30 minutes in order to give the masternode enough time to sync, then start the node from your wallet, Debug console option"${NC}
 echo "The END. You can close now the SSH terminal session"
 echo "$(date)";
