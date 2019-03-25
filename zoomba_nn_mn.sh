@@ -83,7 +83,7 @@ PRIV_KEY_09=
 PRIV_KEY_10=
 #
 for num in {1..10}; do
-   nn=$(printf "%02d" $num)
+   nn=$(printf "%03d" $num)
 # Use $nn for your purposes
 port=$((num * 2 + 5530))
 #
@@ -150,7 +150,7 @@ echo -e ${YELLOW}"Syncing Masternodes..."${NC}
 sleep 5
 #
 for num in {1..10}; do
-   nn=$(printf "%02d" $num)
+   nn=$(printf "%03d" $num)
 # Use $nn for your purposes
 sleep 10
 until zoomba-cli -datadir=/home/zoomba_$nn/.zoomba mnsync status | grep -m 1 '"IsBlockchainSynced" : true,'; do sleep 1 ; done > /dev/null 2>&1
