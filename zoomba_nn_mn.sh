@@ -90,9 +90,6 @@ port=$((num * 2 + 5530))
 echo "Creating n Zoomba system users with no-login access:"
 sudo adduser --system --home /home/zoomba_$nn zoomba_$nn
 #
-echo "Creating Neos system users with no-login access:"
-sudo adduser --system --home /home/neos_$nn neos_$nn
-#
 eval pk='$'PRIV_KEY_"$nn"
 #
 #
