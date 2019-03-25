@@ -36,7 +36,6 @@ sudo apt-get -y install libevent-dev
 sudo apt-get -y install libboost-all-dev 
 sudo apt-get -y install libminiupnpc-dev
 sudo apt-get -y install git
-sudo apt-get -y install software-properties-common
 sudo apt-get -y install python-software-properties
 sudo apt-get -y install g++
 sudo apt-get -y install pkg-config  
