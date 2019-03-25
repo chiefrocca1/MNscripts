@@ -21,9 +21,9 @@ if [[ $(lsb_release -d) != *16.04* ]]; then
   exit 1
 fi
 #
-echo -e ${YELLOW}"Welcome to the Zoomba Automated Install, During this Process Please Hit Enter or Input What is Asked."${NC}
-echo ""
-pause
+#echo -e ${YELLOW}"Welcome to the Zoomba Automated Install, During this Process Please Hit Enter or Input What is Asked."${NC}
+#echo ""
+#pause
 #
 sudo apt-get -y update 
 sudo apt-get -y upgrade
@@ -66,10 +66,9 @@ sudo git clone https://github.com/zoombacoin/zoomba
 sudo chmod -R 755 ~/zoomba 
 cd zoomba 
 sudo ./autogen.sh 
-sudo ./configure --disable-tests --disable-gui-tests 
-sudo make 
+sudo ./configure
+sudo make
 sudo make install
-#
 #
 PRIV_KEY_001=87hNmVhmDYNK39vXN1bfuLGQbE2Rb7mRbxP4Jp2gE2cqBRD4xPz
 PRIV_KEY_002=88aigA9zHH1m2gPV8MeH4HZf4rpsWi6swNpyUS66NsGV3JP8d4J
