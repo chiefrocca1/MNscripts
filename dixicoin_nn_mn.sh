@@ -106,11 +106,12 @@ echo "daemon=1" >> /home/dixicoin_$nn/.dixicoin/dixicoin.conf
 echo "server=1" >> /home/dixicoin_$nn/.dixicoin/dixicoin.conf
 echo "port=$port" >> /home/dixicoin_$nn/.dixicoin/dixicoin.conf
 echo "listen=0" >> /home/dixicoin_$nn/.dixicoin/dixicoin.conf
+echo "staking=0" >> /home/dixicoin_$nn/.dixicoin/dixicoin.conf
 echo "masternode=1" >> /home/dixicoin_$nn/.dixicoin/dixicoin.conf
 echo "logtimestamps=1" >> /home/dixicoin_$nn/.dixicoin/dixicoin.conf
-echo "maxconnections=250" >> /home/dixicoin_$nn/.dixicoin/dixicoin.conf
+echo "maxconnections=256" >> /home/dixicoin_$nn/.dixicoin/dixicoin.conf
 echo "masternodeprivkey=$pk" >> /home/dixicoin_$nn/.dixicoin/dixicoin.conf
-echo "externalip=$(hostname  -I | cut -f1 -d' '):61150" >> /home/dixicoin_$nn/.dixicoin/dixicoin.conf
+echo "externalip=24.99.223.29:61150" >> /home/dixicoin_$nn/.dixicoin/dixicoin.conf
 echo "addnode=119.27.163.238" >> /home/dixicoin_$nn/.dixicoin/dixicoin.conf
 echo "addnode=159.69.16.114" >> /home/dixicoin_$nn/.dixicoin/dixicoin.conf
 echo "addnode=83.243.67.227" >> /home/dixicoin_$nn/.dixicoin/dixicoin.conf
@@ -121,6 +122,9 @@ echo "addnode=178.128.87.245" >> /home/dixicoin_$nn/.dixicoin/dixicoin.conf
 echo "addnode=212.35.183.73" >> /home/dixicoin_$nn/.dixicoin/dixicoin.conf
 echo "addnode=185.57.82.27" >> /home/dixicoin_$nn/.dixicoin/dixicoin.conf
 echo "addnode=178.128.217.156" >> /home/dixicoin_$nn/.dixicoin/dixicoin.conf
+echo "addnode=207.180.219.30:60052" >> /home/dixicoin_$nn/.dixicoin/dixicoin.conf
+echo "addnode=[2a03:a140:10:1b5a:5d7c::1]:61150" >> /home/dixicoin_$nn/.dixicoin/dixicoin.conf
+echo "addnode=85.255.7.171:36610" >> /home/dixicoin_$nn/.dixicoin/dixicoin.conf
 #
 dixicoind -datadir=/home/dixicoin_$nn/.dixicoin -daemon -reindex
 echo -e ${YELLOW}"Syncing of Masternode $nn has begun..."${NC}
