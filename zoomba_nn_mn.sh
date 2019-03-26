@@ -40,7 +40,7 @@ sudo apt-get -y install libdb4.8-dev
 sudo apt-get -y install libdb4.8++-dev 
 sudo apt-get -y install libminiupnpc-dev libzmq3-dev libevent-pthreads-2.0-5 
 sudo apt-get -y install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev
-sudo apt-get -y install libqrencode-dev bsdmainutils 
+sudo apt-get -y install libqrencode-dev bsdmainutils unzip
 #
 echo "Installing Fail2ban and Ufw(Firewall)"
 sudo apt-get -y install fail2ban ufw
@@ -62,13 +62,18 @@ sudo swapon /var/swap.img
 sudo echo ' /var/swap.img none swap sw 0 0 ' >> /etc/fstab
 cd ~ 
 #
-sudo git clone https://github.com/zoombacoin/zoomba 
-sudo chmod -R 755 ~/zoomba 
-cd zoomba 
-sudo ./autogen.sh 
-sudo ./configure
-sudo make
-sudo make install
+#sudo git clone https://github.com/zoombacoin/zoomba 
+#sudo chmod -R 755 ~/zoomba 
+#cd zoomba 
+#sudo ./autogen.sh 
+#sudo ./configure
+#sudo make
+#sudo make install
+#
+wget https://github.com/zoombacoin/zoomba/releases/download/1.0.1/Zoomba_1.0.1_Linux.zip
+unzip Zoomba_1.0.1_Linux.zip
+sudo mv zoombad zoomba-qt zoomba-cli /usr/local/bin
+sudo chmod 755 -R  /usr/local/bin/zoomba*
 #
 PRIV_KEY_001=87hNmVhmDYNK39vXN1bfuLGQbE2Rb7mRbxP4Jp2gE2cqBRD4xPz
 PRIV_KEY_002=88aigA9zHH1m2gPV8MeH4HZf4rpsWi6swNpyUS66NsGV3JP8d4J
