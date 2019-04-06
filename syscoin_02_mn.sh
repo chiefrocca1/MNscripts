@@ -231,8 +231,7 @@ for num in {1..2}; do
 sleep 10
 until syscoin-cli -datadir=/home/syscoin_$nn/.syscoincore mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Masternode $nn is fully synced!"${NC}
-cd /usr/local/bin
-bash sentinel-ping_$nn
+bash /usr/local/bin/sentinel-ping_$nn
 done
 #
 echo ""
