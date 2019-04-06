@@ -100,7 +100,7 @@ echo "debug=0" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
 echo "masternode=1" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
 echo "masternodeprivkey=$pk" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
 echo "externalip=$(hostname  -I | cut -f1 -d' ')" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
-echo "port=$port" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
+echo "port=8369" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
 echo "addnode=103.14.141.221" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
 echo "addnode=103.14.142.195" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
 echo "addnode=104.238.173.55" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
@@ -183,29 +183,35 @@ echo "addnode=94.16.121.182" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
 echo "addnode=95.179.129.97" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
 echo "addnode=95.179.183.191" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
 #
-#Create and Configure Sentinel
-cd
-sudo cp -r ~/sentinel /home/syscoin_$nn
-sudo chown -R syscoin_$nn /home/syscoin_$nn/sentinel
-sudo touch /home/syscoin_$nn/sentinel/sentinel.conf
+# Sentinel config
+SENTINEL_CONF=$(cat <<EOF
+# syscoin conf location
+syscoin_conf=/home/syscoin_$nn/.syscoincore/syscoin.conf
 
-eval un='$'syscoin_"$nn"
+# db connection details
+db_name=/home/syscoin_$nn/sentinel/database/sentinel.db
+db_driver=sqlite
 
-echo "# syscoin conf location" >> /home/syscoin_$nn/sentinel/sentinel.conf
-echo "syscoin_conf=/home/$un/.syscoincore/syscoin.conf" >> /home/syscoin_$nn/sentinel/sentinel.conf
-echo "# db connection details" >> /home/syscoin_$nn/sentinel/sentinel.conf
-echo "db_name=/home/$un/sentinel/database/sentinel.db" >> /home/syscoin_$nn/sentinel/sentinel.conf
-echo "db_driver=sqlite" >> /home/syscoin_$nn/sentinel/sentinel.conf
+# network
+EOF
+)
 #
-#Create sentinel-ping
-echo "~/sentinel/venv/bin/python /home/$un/sentinel/bin/sentinel.py 2>&1 >> /home/$un/sentinel/sentinel-cron.log" >> ~/sentinel-ping_$nn
+# Sentinel-Ping config
+SENTINEL_PING=$(cat <<EOF
+#!/bin/bash
+
+~/sentinel/venv/bin/python /home/syscoin_$nn/sentinel/bin/sentinel.py 2>&1 >> /home/syscoin_$nn/sentinel/sentinel-cron.log
+EOF
+)
+#
+cd
+# create sentinel conf file
+echo "$SENTINEL_CONF" > /home/syscoin_$nn/sentinel/sentinel_$nn.conf
+#
+# create sentinel-ping
+echo "$SENTINEL_PING" > ~/sentinel-ping_$nn
 sudo mv -f ~/sentinel-ping_$nn /usr/local/bin
 sudo chmod +x /usr/local/bin/sentinel-ping_$nn
-
-eval ct='$'sentinel-ping_"$nn"
-
-cd /home/syscoin_$nn
-echo "echo "*/10 * * * * /usr/local/bin/$ct"" >> sudo crontab -u syscoin_$nn
 #
 syscoind -datadir=/home/syscoin_$nn/.syscoincore -daemon -reindex
 echo -e ${YELLOW}"Syncing of Masternode $nn has begun..."${NC}
