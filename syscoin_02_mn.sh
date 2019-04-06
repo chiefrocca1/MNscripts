@@ -193,6 +193,7 @@ db_name=/home/syscoin_$nn/sentinel/database/sentinel.db
 db_driver=sqlite
 
 # network
+network=mainnet
 EOF
 )
 #
@@ -212,6 +213,8 @@ echo "$SENTINEL_CONF" > /home/syscoin_$nn/sentinel/sentinel.conf
 echo "$SENTINEL_PING" > ~/sentinel-ping_$nn
 sudo mv -f ~/sentinel-ping_$nn /usr/local/bin
 sudo chmod +x /usr/local/bin/sentinel-ping_$nn
+#
+echo "*/10 * * * * /usr/local/bin/sentinel-ping_$nn" | sudo crontab -u syscoin_$nn -
 #
 syscoind -datadir=/home/syscoin_$nn/.syscoincore -daemon -reindex
 echo -e ${YELLOW}"Syncing of Masternode $nn has begun..."${NC}
