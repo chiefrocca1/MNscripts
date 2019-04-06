@@ -206,6 +206,7 @@ EOF
 )
 #
 cd
+sudo cp -f ~/sentinel /home/syscoin_$nn
 # create sentinel conf file
 echo "$SENTINEL_CONF" >> /home/syscoin_$nn/sentinel/sentinel.conf
 #
