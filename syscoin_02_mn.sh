@@ -99,8 +99,8 @@ echo "debug=0" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
 # masternode config
 echo "masternode=1" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
 echo "masternodeprivkey=$pk" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
-echo "externalip=$(hostname  -I | cut -f1 -d' ')" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
-echo "port=8369" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
+echo "externalip=$(hostname  -I | cut -f1 -d' '):8369" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
+echo "port=$port" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
 echo "addnode=103.14.141.221" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
 echo "addnode=103.14.142.195" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
 echo "addnode=104.238.173.55" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
@@ -231,7 +231,7 @@ for num in {1..2}; do
 sleep 10
 until syscoin-cli -datadir=/home/syscoin_$nn/.syscoincore mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Masternode $nn is fully synced!"${NC}
-#bash /usr/local/bin/sentinel-ping_$nn
+bash /usr/local/bin/sentinel-ping_$nn
 done
 #
 echo ""
