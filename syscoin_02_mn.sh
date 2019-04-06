@@ -208,6 +208,7 @@ EOF
 cd
 sudo cp -r ~/sentinel /home/syscoin_$nn
 # create sentinel conf file
+rm /home/syscoin_$nn/sentinel/sentinel.conf
 echo "$SENTINEL_CONF" >> /home/syscoin_$nn/sentinel/sentinel.conf
 #
 # create sentinel-ping
