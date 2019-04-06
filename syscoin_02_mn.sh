@@ -207,10 +207,10 @@ EOF
 #
 cd
 # create sentinel conf file
-echo "$SENTINEL_CONF" > /home/syscoin_$nn/sentinel/sentinel.conf
+echo "$SENTINEL_CONF" >> /home/syscoin_$nn/sentinel/sentinel.conf
 #
 # create sentinel-ping
-echo "$SENTINEL_PING" > ~/sentinel-ping_$nn
+echo "$SENTINEL_PING" >> ~/sentinel-ping_$nn
 sudo mv -f ~/sentinel-ping_$nn /usr/local/bin
 sudo chmod +x /usr/local/bin/sentinel-ping_$nn
 #
