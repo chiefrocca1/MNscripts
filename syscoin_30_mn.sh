@@ -100,8 +100,8 @@ echo "debug=0" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
 # masternode config
 echo "masternode=1" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
 echo "masternodeprivkey=$pk" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
-echo "externalip=$(hostname  -I | cut -f1 -d' '):8369" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
-echo "port=$port" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
+echo "externalip=24.99.223.29" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
+echo "port=8369" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
 echo "addnode=103.14.141.221" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
 echo "addnode=103.14.142.195" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
 echo "addnode=104.238.173.55" >> /home/syscoin_$nn/.syscoincore/syscoin.conf
