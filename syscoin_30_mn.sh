@@ -67,6 +67,7 @@ PRIV_KEY_26=5Hude6QkHzwtrFr2JnnvCXGxd5WZyy578XNnzv3G5fsQR1xz4cW
 PRIV_KEY_27=5HvzLoQwnz8Ee59SaMYr9nfp6FCj646qiUgg47wjhF1CYdJMnJM
 PRIV_KEY_28=5K86GxvDqLYpvHQt9EfxsrZ47UJhqeMeW7bwcPqVPHsLywryCm1
 PRIV_KEY_29=5Hq9DKY86MxgqCaw8N4cQH4VztqbohRKnaCvf49CvvCbvi2iKs4
+PRIV_KEY_30=5JqHp6K7DKkhNMzSfaCTHUpyNUa11fx3Lame242ytCqoLxEyX9z
 #
 for num in {1..29}; do
    nn=$(printf "%02d" $num)
