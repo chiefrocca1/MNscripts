@@ -69,7 +69,7 @@ PRIV_KEY_28=5K86GxvDqLYpvHQt9EfxsrZ47UJhqeMeW7bwcPqVPHsLywryCm1
 PRIV_KEY_29=5Hq9DKY86MxgqCaw8N4cQH4VztqbohRKnaCvf49CvvCbvi2iKs4
 PRIV_KEY_30=5JqHp6K7DKkhNMzSfaCTHUpyNUa11fx3Lame242ytCqoLxEyX9z
 #
-for num in {1..29}; do
+for num in {1..30}; do
    nn=$(printf "%02d" $num)
 # Use $nn for your purposes
 port=$((num * 2 + 8369))
@@ -223,7 +223,7 @@ done
 echo -e ${YELLOW}"Syncing Masternodes..."${NC}
 sleep 5
 #
-for num in {1..29}; do
+for num in {1..30}; do
    nn=$(printf "%02d" $num)
 # Use $nn for your purposes
 sleep 10
