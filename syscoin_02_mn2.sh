@@ -5,18 +5,17 @@ if [ "$(sudo id -u)" != "0" ]; then
     exit 1
 fi
 #
-  # git
-  sudo apt install -y git tar wget
-  # build tools
-  sudo apt install -y build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils software-properties-common
-  # boost
-  sudo apt install -y libboost-all-dev
-  # bdb 4.8
-  sudo add-apt-repository -y ppa:bitcoin/bitcoin
-  sudo apt update -y
-  sudo apt install -y libdb4.8-dev libdb4.8++-dev
-  # zmq
-  sudo apt install -y libzmq3-dev
+sudo apt install -y git tar wget
+# build tools
+sudo apt install -y build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils software-properties-common
+# boost
+sudo apt install -y libboost-all-dev
+# bdb 4.8
+sudo add-apt-repository -y ppa:bitcoin/bitcoin
+sudo apt update -y
+sudo apt install -y libdb4.8-dev libdb4.8++-dev
+# zmq
+sudo apt install -y libzmq3-dev
 #
 #Open Syscoin Port
 #ufw allow 8369/tcp
