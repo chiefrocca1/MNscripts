@@ -19,7 +19,7 @@ fi
   sudo apt install -y libzmq3-dev
 #
 #Open Syscoin Port
-ufw allow 8369/tcp
+#ufw allow 8369/tcp
 #
 #Setup Variables
 GREEN='\033[0;32m'
