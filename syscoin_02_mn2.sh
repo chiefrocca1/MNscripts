@@ -13,7 +13,13 @@ sudo apt install -y libdb4.8-dev libdb4.8++-dev
 sudo apt install -y libzmq3-dev
 #
 #Open Syscoin Port
-#ufw allow 8369/tcp
+sudo apt-get -y install fail2ban ufw
+service fail2ban restart
+ufw default deny incoming
+ufw default allow outgoing
+ufw allow ssh
+ufw allow 8369/tcp
+yes | ufw enable
 #
 #Setup Variables
 GREEN='\033[0;32m'
