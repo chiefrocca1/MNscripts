@@ -192,7 +192,6 @@ masternodeaddr=24.99.223.29:8369
 externalip=${proxy}:8369
 port=${port}
 EOL
-done
 #
 # Sentinel config
 SENTINEL_CONF=$(cat <<EOF
