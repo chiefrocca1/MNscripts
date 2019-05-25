@@ -1,9 +1,5 @@
 #!/bin/bash
 # Only run as a root user
-if [ "$(sudo id -u)" != "0" ]; then
-    echo "This script may only be run as root or with user with sudo privileges."
-    exit 1
-fi
 sudo apt install -y git tar wget
 # build tools
 sudo apt install -y build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils software-properties-common
