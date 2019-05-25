@@ -27,6 +27,15 @@ cd syscoincore-3.2.0.0/bin
 sudo mv syscoind syscoin-qt syscoin-cli /usr/local/bin
 sudo chmod 755 -R  /usr/local/bin/syscoin*
 #
+cd
+git clone https://github.com/syscoin/syscoin.git
+sudo chmod -R 755 ~/syscoin 
+cd ~/syscoin/ 
+sudo ./autogen.sh
+sudo ./configure --disable-tests --disable-gui-tests --without-gui
+sudo make -j$(nproc) -pipe
+sudo make install -y
+#
 #INSTALL SENTINEL
   cd
   if [ ! -d ~/sentinel ]; then
@@ -88,6 +97,10 @@ eval pk='$'PRIV_KEY_"$nn"
 
 cd /home/syscoin_$nn/.syscoincore
 rm syscoin.conf
+
+cd /home/syscoin_$nn
+sudo mkdir /home/syscoin_$nn/.syscoincore
+sudo touch /home/syscoin_$nn/.syscoincore/syscoin.conf
 
 cat > "/home/syscoin_$nn/.syscoincore/syscoin.conf" << EOL
 # rpc config
