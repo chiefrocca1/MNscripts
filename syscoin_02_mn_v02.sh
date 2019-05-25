@@ -1,4 +1,10 @@
 #!/bin/bash
+#Setup Variables
+GREEN='\033[0;32m'
+YELLOW='\033[0;93m'
+RED='\033[0;31m'
+NC='\033[0m'
+#
 # Only run as a root user
  sudo apt install -y git tar wget
 # build tools
@@ -21,17 +27,43 @@
  ufw allow 8369/tcp
  yes | ufw enable
 #
-#Setup Variables
-GREEN='\033[0;32m'
-YELLOW='\033[0;93m'
-RED='\033[0;31m'
-NC='\033[0m'
+#Set IPTables
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 172.241.236.174 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 172.241.236.253 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 198.71.85.119 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 198.71.85.198 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 198.71.85.248 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.105.3.115 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.105.3.193 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.105.3.43 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.105.4.173 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.105.4.237 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.105.4.93 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.108.24.168 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.108.24.86 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.108.24.9 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.80.141.229 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.80.141.232 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.80.141.87 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.80.142.113 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.80.142.170 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.80.142.6 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.81.67.118 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.81.67.172 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.81.67.59 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.81.67.75 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.82.104.11 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.82.104.157 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.82.104.3 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.82.106.139 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.82.106.205 -j DNAT --to-destination 127.0.0.1
+iptables -t nat -A OUTPUT -s 24.99.223.29 -d 23.82.106.74 -j DNAT --to-destination 127.0.0.1
 #
-wget https://github.com/syscoin/syscoin/releases/download/3.2.0.0/syscoincore-3.2.0.0-x86_64-linux-gnu.tar.gz
-tar xvzf syscoincore-3.2.0.0-x86_64-linux-gnu.tar.gz
-cd syscoincore-3.2.0.0/bin
-sudo mv syscoind syscoin-qt syscoin-cli /usr/local/bin
-sudo chmod 755 -R  /usr/local/bin/syscoin*
+ wget https://github.com/syscoin/syscoin/releases/download/3.2.0.0/syscoincore-3.2.0.0-x86_64-linux-gnu.tar.gz
+ tar xvzf syscoincore-3.2.0.0-x86_64-linux-gnu.tar.gz
+ cd syscoincore-3.2.0.0/bin
+ sudo mv syscoind syscoin-qt syscoin-cli /usr/local/bin
+ sudo chmod 755 -R  /usr/local/bin/syscoin*
 #
  cd
  git clone https://github.com/syscoin/syscoin.git
@@ -121,7 +153,7 @@ PROXY_28=23.82.106.139
 PROXY_29=23.82.106.205
 PROXY_30=23.82.106.74
 #
-for num in {1..30}
+for num in {1..2}
 do
    nn=$(printf "%02d" $num)
 # Use $nn for your purposes
@@ -160,8 +192,7 @@ masternodeaddr=24.99.223.29:8369
 externalip=${proxy}:8369
 port=${port}
 EOL
-
-Done
+done
 #
 # Sentinel config
 SENTINEL_CONF=$(cat <<EOF
