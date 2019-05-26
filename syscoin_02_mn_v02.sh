@@ -167,7 +167,7 @@ do
 #cd /home/syscoin_$nn/.syscoincore
 #rm syscoin.conf
 #
- cd /home/syscoin_$nn
+#cd /home/syscoin_$nn
  sudo mkdir /home/syscoin_$nn/.syscoincore
  sudo touch /home/syscoin_$nn/.syscoincore/syscoin.conf
 #
