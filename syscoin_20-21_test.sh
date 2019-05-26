@@ -6,7 +6,7 @@ RED='\033[0;31m'
 NC='\033[0m'
 #
 # Only run as a root user
- sudo apt install -y git tar wget
+ sudo apt install -y git tar netstat nano
 # build tools
  sudo apt install -y build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils software-properties-common
 # boost
