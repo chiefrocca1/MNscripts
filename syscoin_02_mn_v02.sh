@@ -168,6 +168,7 @@ do
 #rm syscoin.conf
 #
 #cd /home/syscoin_$nn
+ sudo adduser --system --home /home/syscoin_$nn syscoin_$nn
  sudo mkdir /home/syscoin_$nn/.syscoincore
  sudo touch /home/syscoin_$nn/.syscoincore/syscoin.conf
 #
