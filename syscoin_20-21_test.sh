@@ -74,7 +74,7 @@ for num in {20..21}
 do
 nn=$(printf "%02d" $num)
 # Use $nn for your purposes
- port=$((20 - num + 8369))
+ port=$((num -20 + 8369))
  rpcport=$((num + 9000))
 #
  eval pk='$'PRIV_KEY_"$nn"
