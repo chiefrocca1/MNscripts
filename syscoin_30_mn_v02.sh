@@ -153,11 +153,11 @@ PROXY_28=23.82.106.139
 PROXY_29=23.82.106.205
 PROXY_30=23.82.106.74
 #
-for num in {20..21}
+for num in {1..30}
 do
    nn=$(printf "%02d" $num)
 # Use $nn for your purposes
- port=$((num + 8000))
+ port=$((num - 1 + 8369))
  rpcport=$((num + 9000))
 #
  eval pk='$'PRIV_KEY_"$nn"
