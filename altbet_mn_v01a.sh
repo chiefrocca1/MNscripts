@@ -111,7 +111,7 @@ addnode=95.217.48.249:8322
 addnode=140.82.1.78:8322
 addnode=95.216.82.97:8322
 EOL
-altbetd -conf=/home/altbet_$nn/.altbet/altbet.conf -datadir=/home/altbet_$nn/.altbet -daemon -prune=100
+altbetd_$nn -conf=/home/altbet_$nn/.altbet/altbet.conf -datadir=/home/altbet_$nn/.altbet -daemon -prune=100
 echo -e ${YELLOW}"Syncing of Masternode $nn has begun..."${NC}
 done
 #
