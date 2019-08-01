@@ -58,7 +58,7 @@ PROXY_28=23.82.106.139
 PROXY_29=23.82.106.205
 PROXY_30=23.82.106.74
 #
-for num in {1..2}
+for num in {3..20}
 do
    nn=$(printf "%02d" $num)
 # Use $nn for your purposes
@@ -118,7 +118,7 @@ done
 echo -e ${YELLOW}"Syncing Masternodes..."${NC}
 sleep 5
 #
-for num in {1..2}; do
+for num in {3..20}; do
    nn=$(printf "%02d" $num)
 # Use $nn for your purposes
 sleep 10
