@@ -5,8 +5,6 @@ YELLOW='\033[0;93m'
 RED='\033[0;31m'
 NC='\033[0m'
 #
-echo -e "Installing required packages, it may take some time to finish.${NC}"
-#
 #Open altbet Port
  ufw allow 8322/tcp
 #Download altbet 
