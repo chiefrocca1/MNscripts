@@ -5,15 +5,6 @@ YELLOW='\033[0;93m'
 RED='\033[0;31m'
 NC='\033[0m'
 #
-#Open altbet Port
- ufw allow 8322/tcp
-#Download altbet 
-wget https://github.com/altbet/abet/releases/download/v1.0.1.1/altbet-v1.0.1.1-ubu1604.tar.gz
-tar xvzf altbet-v1.0.1.1-ubu1804.tar.gz
-cd altbet-v1.0.1.1-ubu1804/bin
-sudo mv altbetd altbet-qt altbet-cli altbet-tx /usr/local/bin
-sudo chmod 755 -R  /usr/local/bin/altbet*
-#
 #
 PRIV_KEY_01=28NbR1YNJqq5DSGaASCQRtnMtiZshq2FjdkcQhKNhhB1oeRsSKZ
 PRIV_KEY_02=28oV6LRq2Bcsao1akEjY3WYYbMsxfeit1Auhgg6isGbKh1vXw3t
