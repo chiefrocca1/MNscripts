@@ -92,7 +92,7 @@ PROXY_50=23.81.58.112
 PROXY_51=23.81.58.244
 PROXY_52=23.81.58.88
 #
-for num in {21..27}
+for num in {21..26}
 do
    nn=$(printf "%02d" $num)
 # Use $nn for your purposes
@@ -147,14 +147,6 @@ addnode=95.216.82.97:8322
 EOL
 altbetd_$nn -conf=/home/altbet_$nn/.altbet/altbet.conf -datadir=/home/altbet_$nn/.altbet -daemon -prune=100
 echo -e ${YELLOW}"Syncing of Masternode $nn has begun..."${NC}
-done
-#
-echo -e ${YELLOW}"Syncing Masternodes..."${NC}
-sleep 5
-#
-for num in {21..27}; do
-   nn=$(printf "%02d" $num)
-# Use $nn for your purposes
 sleep 10
 until altbet-cli -datadir=/home/altbet_$nn/.altbet mnsync status | grep -m 1 '"IsBlockchainSynced": true,'; do sleep 1 ; done > /dev/null 2>&1
 echo -e ${GREEN}"Masternode $nn is fully synced!"${NC}
