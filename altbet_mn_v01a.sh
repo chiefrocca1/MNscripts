@@ -92,7 +92,7 @@ PROXY_50=23.81.58.112
 PROXY_51=23.81.58.244
 PROXY_52=23.81.58.88
 #
-for num in {21..26}
+for num in {27..29}
 do
    nn=$(printf "%02d" $num)
 # Use $nn for your purposes
